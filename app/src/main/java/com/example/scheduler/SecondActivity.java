@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -58,6 +59,7 @@ public class SecondActivity extends AppCompatActivity {
             name.setText(personName);
             email.setText(personEmail);
             id.setText("ID: " + personId);
+            Glide.with(this).load(personPhoto).into(photo);
 
         }
 
