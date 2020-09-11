@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-//TEST can be deleted
-//test comment
-//adding comment to commit back to main branch
-=======
-//I will work on something..
->>>>>>> master
 package com.example.scheduler;
 
 import android.content.Intent;
