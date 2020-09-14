@@ -17,7 +17,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
 
-public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
     SignInButton signInButton;
