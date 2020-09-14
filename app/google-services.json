@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "914411942176",
+    "firebase_url": "https://mahirscheduler.firebaseio.com",
+    "project_id": "mahirscheduler",
+    "storage_bucket": "mahirscheduler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914411942176:android:3bdf4e279c154ff6cea745",
+        "android_client_info": {
+          "package_name": "com.example.scheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914411942176-9ougip6hjkc9iavper4gtmcf4dqtvj4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scheduler",
+            "certificate_hash": "d612484fc447759937257729a8c2455b7ae8e061"
+          }
+        },
+        {
+          "client_id": "914411942176-kmqrjom7psrtbbh2dkk6ehrbj8rbe6ah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwQ_fEFgKvfQycDThJnWClA7pCyH97ExQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914411942176-kmqrjom7psrtbbh2dkk6ehrbj8rbe6ah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
