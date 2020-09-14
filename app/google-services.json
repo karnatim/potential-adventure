@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "264102288779",
-    "firebase_url": "https://scheduler-fc4b2.firebaseio.com",
-    "project_id": "scheduler-fc4b2",
-    "storage_bucket": "scheduler-fc4b2.appspot.com"
+    "project_number": "914411942176",
+    "firebase_url": "https://mahirscheduler.firebaseio.com",
+    "project_id": "mahirscheduler",
+    "storage_bucket": "mahirscheduler.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:264102288779:android:14b2dfdcf469fffee3238e",
+        "mobilesdk_app_id": "1:914411942176:android:3bdf4e279c154ff6cea745",
         "android_client_info": {
           "package_name": "com.example.scheduler"
         }
       },
       "oauth_client": [
         {
-          "client_id": "264102288779-goltubhfc68guqq3mqs82sovreq75blv.apps.googleusercontent.com",
+          "client_id": "914411942176-9ougip6hjkc9iavper4gtmcf4dqtvj4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scheduler",
+            "certificate_hash": "d612484fc447759937257729a8c2455b7ae8e061"
+          }
+        },
+        {
+          "client_id": "914411942176-67ff19fmnsn0gmimccum377dlo70nrlb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scheduler",
+            "certificate_hash": "36799096a3f72e2587f9bbc9591e40aa235e69e4"
+          }
+        },
+        {
+          "client_id": "914411942176-kmqrjom7psrtbbh2dkk6ehrbj8rbe6ah.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDvVQkLsljYClX-ZrWFipiaTeLr74TIuvM"
+          "current_key": "AIzaSyBwQ_fEFgKvfQycDThJnWClA7pCyH97ExQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "264102288779-goltubhfc68guqq3mqs82sovreq75blv.apps.googleusercontent.com",
+              "client_id": "914411942176-kmqrjom7psrtbbh2dkk6ehrbj8rbe6ah.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
