@@ -83,10 +83,4 @@ public class SecondActivity extends AppCompatActivity {
                     }
                 });
     }
-
-    /**sends user to Main Menu CURRENTLY TESTING */
-    public void goToMain(View view){
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
-    }
 }

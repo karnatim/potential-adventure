@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".MainMenu"
-            android:parentActivityName=".SecondActivity">
-        </activity>
         <activity
             android:name=".MainActivity"
             android:label=""
