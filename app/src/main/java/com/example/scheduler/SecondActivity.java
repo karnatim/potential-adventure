@@ -84,6 +84,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private void toCal() {
         startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
+        //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void signOut() {
@@ -93,6 +94,7 @@ public class SecondActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(SecondActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         finish();
                     }
                 });

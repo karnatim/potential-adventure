@@ -39,6 +39,12 @@ public class ThirdActivity extends AppCompatActivity {
     }
     private void goBack(){
         startActivity(new Intent(ThirdActivity.this, SecondActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }
