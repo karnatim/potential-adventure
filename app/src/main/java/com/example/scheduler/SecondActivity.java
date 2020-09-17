@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //button logic here
+                toCal();
             }
         });
 
@@ -80,6 +80,10 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void toCal() {
+        startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
     }
 
     private void signOut() {
