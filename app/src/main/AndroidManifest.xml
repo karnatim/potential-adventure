@@ -12,11 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainMenuActivity"
-            android:parentActivityName=".SecondActivity"></activity>
+            android:parentActivityName=".SecondActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".SecondActivity" />
-        <activity
-            android:name=".MainMenu"
-            android:parentActivityName=".SecondActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label=""
