@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
-public class SecondActivity extends AppCompatActivity {
+public class LandingActivity extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     Button sign_out;
@@ -57,7 +57,7 @@ public class SecondActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(SecondActivity.this);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(LandingActivity.this);
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
@@ -83,7 +83,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void toCal() {
-        startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
+        startActivity(new Intent(LandingActivity.this, CreateEventActivity.class));
         //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
@@ -92,8 +92,8 @@ public class SecondActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(SecondActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                        Toast.makeText(LandingActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LandingActivity.this, LoginActivity.class));
                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         finish();
                     }
