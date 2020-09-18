@@ -24,12 +24,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = LoginActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
 
-    private LoginActivity mBinding;
+    private MainActivity mBinding;
     int RC_SIGN_IN = 9001;
 
     private SignInButton signInButton;
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
-            startActivity(new Intent(LoginActivity.this, LandingActivity.class));
+            startActivity(new Intent(MainActivity.this, SecondActivity.class));
         }
         super.onStart();
         //Check if user is signed in (non-null) and update UI accordingly.
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(LoginActivity.this, LandingActivity.class));
+                            startActivity(new Intent(MainActivity.this, SecondActivity.class));
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class CreateEventActivity extends AppCompatActivity {
+public class ThirdActivity extends AppCompatActivity {
     ImageView photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
         photo = findViewById(R.id.photo);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(CreateEventActivity.this);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(ThirdActivity.this);
         if (acct != null) {
             Uri personPhoto = acct.getPhotoUrl();
             Glide.with(this).load(personPhoto).into(photo);
@@ -38,7 +38,7 @@ public class CreateEventActivity extends AppCompatActivity {
         });
     }
     private void goBack(){
-        startActivity(new Intent(CreateEventActivity.this, LandingActivity.class));
+        startActivity(new Intent(ThirdActivity.this, SecondActivity.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
