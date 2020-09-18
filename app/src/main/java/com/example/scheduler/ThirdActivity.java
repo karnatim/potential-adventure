@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+//expanding menu and stuff
+
 public class ThirdActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
