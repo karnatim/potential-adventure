@@ -71,7 +71,11 @@ public class SecondActivity extends AppCompatActivity {
         });
 
     }
-
+    /**sends user to Main Menu CURRENTLY TESTING */
+    public void goToMain(View view){
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        startActivity(intent);
+    }
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -84,9 +88,5 @@ public class SecondActivity extends AppCompatActivity {
                 });
     }
 
-    /**sends user to Main Menu CURRENTLY TESTING */
-    public void goToMain(View view){
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
-    }
+
 }
