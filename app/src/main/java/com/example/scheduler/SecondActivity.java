@@ -72,6 +72,10 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+    public void goTo(View view){
+        startActivity(new Intent(this, ThirdActivity.class));
+    }
+
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
