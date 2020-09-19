@@ -1,0 +1,23 @@
+diff a/app/release/output-metadata.json b/app/release/output-metadata.json	(rejected hunks)
+@@ -0,0 +1,20 @@
++{
++  "version": 1,
++  "artifactType": {
++    "type": "APK",
++    "kind": "Directory"
++  },
++  "applicationId": "com.example.scheduler",
++  "variantName": "release",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "properties": [],
++      "versionCode": 1,
++      "versionName": "1.0",
++      "enabled": true,
++      "outputFile": "app-release.apk"
++    }
++  ]
++}
+\ No newline at end of file
