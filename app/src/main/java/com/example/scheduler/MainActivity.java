@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
-            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            startActivity(new Intent(MainActivity.this, ThirdActivity.class));
         }
         super.onStart();
         //Check if user is signed in (non-null) and update UI accordingly.
