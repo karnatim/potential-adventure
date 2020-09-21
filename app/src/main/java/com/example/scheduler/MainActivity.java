@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     //david comment
     //harris comment
+    //Jonathan Comment
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
