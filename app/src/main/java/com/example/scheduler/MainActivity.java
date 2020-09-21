@@ -27,6 +27,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class MainActivity extends AppCompatActivity {
 
     //david comment
+    //harris comment
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
