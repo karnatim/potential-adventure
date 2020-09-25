@@ -26,6 +26,7 @@
             android:layout_height="wrap_content">
 
     <CalendarView
+        android:id="@+id/calendarView"
         android:layout_height="wrap_content"
         android:layout_width="320dp">
 
