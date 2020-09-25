@@ -1,6 +1,7 @@
 package com.example.scheduler;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,11 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //david comment
+    //harris comment
+    //Jonathan Comment
+    //trung comment
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
@@ -74,14 +80,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-//        if (account != null) {
-//            startActivity(new Intent(MainActivity.this, SecondActivity.class));
-//        }
-//        super.onStart();
+        if (account != null) {
+            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        }
+        super.onStart();
         //Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Log.d(TAG, "currentUser:" + currentUser);
-        //updateUI(currentUser);
+        updateUI(currentUser);
 
     }
 
@@ -104,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                //updateUI(null);
+                updateUI(null);
             }
         }
     }
@@ -122,12 +128,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             startActivity(new Intent(MainActivity.this, SecondActivity.class));
-                            //updateUI(user);
+                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             //Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            updateUI(null);
                         }
                     }
                 });
@@ -139,27 +145,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    private void updateUI(FirebaseUser user) {
-//        if (user != null) {
-//          //mBinding.eMail.setText(user.getEmail());
-//          //mBinding.userName.setText(user.getUid());
-//
-//
-//            String name = user.getDisplayName();
-//            String email = user.getEmail();
-//            Uri photoUrl = user.getPhotoUrl();
-//
-//            boolean emailVerified = user.isEmailVerified();
-//            //signInButton.setVisibility(View.VISIBLE);
-//          //mBinding.signOutAndDisconnect.setVisibility(View.VISIBLE);
-//
-//        } else {
-////          mBinding.eMail.setText(null);
-////          mBinding.userName.setText(null);
-//            //signInButton.setVisibility(View.GONE);
-////          mBinding.signOutAndDisconnect.setVisibility(View.GONE);
-//        }
-//    }
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+          //mBinding.eMail.setText(user.getEmail());
+          //mBinding.userName.setText(user.getUid());
+
+          String name = user.getDisplayName();
+          String email = user.getEmail();
+          Uri photoUrl = user.getPhotoUrl();
+
+          boolean emailVerified = user.isEmailVerified();
+          signInButton.setVisibility(View.VISIBLE);
+          //mBinding.signOutAndDisconnect.setVisibility(View.VISIBLE);
+
+        } else {
+          //mBinding.eMail.setText(null);
+          //mBinding.userName.setText(null);
+            //signInButton.setVisibility(View.GONE);
+          //mBinding.signOutAndDisconnect.setVisibility(View.GONE);
+        }
+    }
 
     //FirebaseAuth.getInstance().signOut();
 }

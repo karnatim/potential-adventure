@@ -19,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class SecondActivity extends AppCompatActivity {
@@ -34,6 +35,15 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        //fab
+        FloatingActionButton fab = findViewById(R.id.fab_btn);
+        fab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                toCal();
+            }
+        });
 
         sign_out = findViewById(R.id.log_out);
         name = findViewById(R.id.name);
@@ -71,11 +81,19 @@ public class SecondActivity extends AppCompatActivity {
         });
 
     }
+
     /**sends user to Main Menu CURRENTLY TESTING */
     public void goToMain(View view){
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
+
+
+    private void toCal() {
+        startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
+        //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -83,6 +101,7 @@ public class SecondActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(SecondActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         finish();
                     }
                 });
