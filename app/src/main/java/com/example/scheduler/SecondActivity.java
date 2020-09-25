@@ -82,9 +82,11 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+
     private void toCal() {
         startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
-        //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
     }
 
     private void signOut() {
