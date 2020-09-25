@@ -1,11 +1,13 @@
 package com.example.scheduler;
-//<<<<<<< HEAD
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -27,7 +29,14 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 //expanding menu and stuff
 public class ThirdActivity extends AppCompatActivity {
@@ -36,6 +45,11 @@ public class ThirdActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
 
 
+   private static final String TAG = "ThirdActivity";
+
+   private TextView theDate;
+   private Button btnGoCalendar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +57,22 @@ public class ThirdActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+        theDate = (TextView) findViewById(R.id.date);
+        btnGoCalendar = (Button) findViewById(R.id.btnGoCalendar);
+
+        Intent incomingIntent = getIntent();
+        String date = incomingIntent.getStringExtra("date");
+        theDate.setText(date);
+
+        btnGoCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThirdActivity.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
