@@ -48,7 +48,6 @@ public class ThirdActivity extends AppCompatActivity {
    private static final String TAG = "ThirdActivity";
 
    private TextView theDate;
-   private Button btnGoCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,26 +57,16 @@ public class ThirdActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         theDate = (TextView) findViewById(R.id.date);
-        btnGoCalendar = (Button) findViewById(R.id.btnGoCalendar);
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
         theDate.setText(date);
 
-        btnGoCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ThirdActivity.this, CalendarActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace this with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this, CalendarActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
