@@ -3,6 +3,7 @@ package com.example.scheduler;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
@@ -50,7 +51,7 @@ public class ThirdActivity extends AppCompatActivity {
 
     //Google
     GoogleSignInClient mGoogleSignInClient;
-    Button sign_out;
+    Button mSign_out;
     TextView mName;
     TextView mEmail;
     TextView id;
@@ -68,20 +69,19 @@ public class ThirdActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //connect nav view
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView = findViewById(R.id.nav_view);
         mName = (TextView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_name);
         mEmail = (TextView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_email);
         mPhoto = (CircleImageView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_profile_pic);
-
-
-
-        //Google
-        sign_out = findViewById(R.id.sign_out_button);
-        //name = findViewById(R.id.nav_name);
-        //email = findViewById(R.id.nav_email);
-        //id = findViewById(R.id.id);
-        //photo = findViewById(R.id.nav_profile_pic);
-
+        //sign out
+        mNavigationView.getMenu().findItem(R.id.sign_out_button).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                signOut();
+                return true;
+            }
+        });
+        
         //Calendar
         FloatingActionButton fab = findViewById(R.id.fab);
         theDate = (TextView) findViewById(R.id.date);
@@ -112,13 +112,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         }
 
-        /**sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signOut();
-            }
-        });**/
-
+        //fab
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -126,6 +120,8 @@ public class ThirdActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //drawer layout
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -154,6 +150,19 @@ public class ThirdActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(ThirdActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ThirdActivity.this, MainActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                        finish();
+                    }
+                });
     }
 
 
