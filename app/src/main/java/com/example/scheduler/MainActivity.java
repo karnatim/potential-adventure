@@ -1,5 +1,5 @@
 //testing
-package com.example.scheduler;
+//package com.example.scheduler;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         updateUI(currentUser);
 
     }
+}/+-==/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
