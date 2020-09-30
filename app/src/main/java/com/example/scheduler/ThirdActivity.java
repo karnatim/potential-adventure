@@ -38,15 +38,26 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 //expanding menu and stuff
 public class ThirdActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private NavigationView mNavigationView;
+
+
+
+    //Google
     GoogleSignInClient mGoogleSignInClient;
+    Button sign_out;
+    TextView mName;
+    TextView mEmail;
+    TextView id;
+    CircleImageView mPhoto;
 
-
+    //Calendar
    private static final String TAG = "ThirdActivity";
-
    private TextView theDate;
 
     @Override
@@ -55,12 +66,58 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //connect nav view
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mName = (TextView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_name);
+        mEmail = (TextView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_email);
+        mPhoto = (CircleImageView)mNavigationView.getHeaderView(0).findViewById(R.id.nav_profile_pic);
+
+
+
+        //Google
+        sign_out = findViewById(R.id.sign_out_button);
+        //name = findViewById(R.id.nav_name);
+        //email = findViewById(R.id.nav_email);
+        //id = findViewById(R.id.id);
+        //photo = findViewById(R.id.nav_profile_pic);
+
+        //Calendar
         FloatingActionButton fab = findViewById(R.id.fab);
         theDate = (TextView) findViewById(R.id.date);
-
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
         theDate.setText(date);
+
+        //Google
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(ThirdActivity.this);
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personGivenName = acct.getGivenName();
+            String personLastName = acct.getFamilyName();
+            String personEmail = acct.getEmail();
+            //String personId = acct.getId();
+            Uri personPhoto = acct.getPhotoUrl();
+
+            mName.setText(personName);
+            mEmail.setText(personEmail);
+            //id.setText("ID: " + personId);
+            Glide.with(this).load(personPhoto).into(mPhoto);
+
+        }
+
+        /**sign_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
+            }
+        });**/
 
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
